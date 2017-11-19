@@ -12,46 +12,70 @@
         <!--Products-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="InventoriesViewController" customModule="MakeInventory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ProductsViewController" customModule="MakeInventory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G26-8O-8Ed">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCell" textLabel="Vhd-Pd-nbT" detailTextLabel="uEU-tY-iYQ" style="IBUITableViewCellStyleValue1" id="OSh-Ip-j65">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCell" rowHeight="116" id="OSh-Ip-j65" customClass="ProductsTableViewCell" customModule="MakeInventory" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OSh-Ip-j65" id="rYb-Nv-TYZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vhd-Pd-nbT">
-                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyO-No-APW">
+                                                    <rect key="frame" x="320" y="35" width="45" height="75.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="33R-sx-gs3"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Save"/>
+                                                    <connections>
+                                                        <action selector="addButtonTapped:" destination="OSh-Ip-j65" eventType="touchUpInside" id="3EH-rp-h1I"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ON-3A-oZK">
+                                                    <rect key="frame" x="5" y="35" width="80" height="75.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="UCD-m0-nhd"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uEU-tY-iYQ">
-                                                    <rect key="frame" x="321" y="15" width="39" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkh-Lb-4xy">
+                                                    <rect key="frame" x="215" y="35" width="30" height="75.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="I60-6h-nnf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0ON-3A-oZK" firstAttribute="top" secondItem="rYb-Nv-TYZ" secondAttribute="top" constant="35" id="6WA-tz-rI6"/>
+                                                <constraint firstItem="Xkh-Lb-4xy" firstAttribute="leading" secondItem="0ON-3A-oZK" secondAttribute="trailing" constant="130" id="FcW-aI-bOL"/>
+                                                <constraint firstAttribute="baseline" secondItem="0ON-3A-oZK" secondAttribute="bottom" constant="5" id="Hmp-Bo-6S9"/>
+                                                <constraint firstItem="0ON-3A-oZK" firstAttribute="leading" secondItem="rYb-Nv-TYZ" secondAttribute="leading" constant="5" id="P97-dE-vOS"/>
+                                                <constraint firstItem="Xkh-Lb-4xy" firstAttribute="top" secondItem="rYb-Nv-TYZ" secondAttribute="top" constant="35" id="RSl-i1-rbk"/>
+                                                <constraint firstAttribute="bottom" secondItem="SyO-No-APW" secondAttribute="bottom" constant="5" id="fhS-K5-3vz"/>
+                                                <constraint firstItem="SyO-No-APW" firstAttribute="top" secondItem="rYb-Nv-TYZ" secondAttribute="top" constant="35" id="hzY-tS-jxa"/>
+                                                <constraint firstAttribute="bottom" secondItem="Xkh-Lb-4xy" secondAttribute="bottom" constant="5" id="orC-df-Q0d"/>
+                                                <constraint firstAttribute="trailing" secondItem="SyO-No-APW" secondAttribute="trailing" constant="10" id="rK6-th-AkW"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="productName" destination="0ON-3A-oZK" id="sP0-k6-LuX"/>
+                                            <outlet property="productQuantity" destination="Xkh-Lb-4xy" id="Dbd-Qy-INy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SyO-No-APW">
-                                <rect key="frame" x="234" y="90" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -68,9 +92,9 @@
                                 <segue destination="5Vu-mG-t8h" kind="show" id="Cbf-GT-Jiy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kyu-gz-1id">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Kyu-gz-1id">
                             <connections>
-                                <segue destination="WqD-ZL-E89" kind="show" id="S2E-Xo-JB8"/>
+                                <segue destination="WqD-ZL-E89" kind="show" identifier="" id="S2E-Xo-JB8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -80,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744.79999999999995" y="-114.69265367316342"/>
+            <point key="canvasLocation" x="414" y="61"/>
         </scene>
         <!--Cart View Controller-->
         <scene sceneID="UvF-Nf-ZDp">
@@ -154,7 +178,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X0F-RL-Igd"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Inventory" id="Ypk-qS-RCZ">
+                    <navigationItem key="navigationItem" title="Add Inventory" leftItemsSupplementBackButton="YES" id="Ypk-qS-RCZ">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="HqY-Bx-TJT">
                             <connections>
                                 <action selector="savePressed:" destination="WqD-ZL-E89" id="W6U-0r-MH3"/>
@@ -173,7 +197,7 @@
         <!--navigation VC-->
         <scene sceneID="4oJ-iZ-nK0">
             <objects>
-                <navigationController title="navigation VC" automaticallyAdjustsScrollViewInsets="NO" id="Jvl-hD-dYT" sceneMemberID="viewController">
+                <navigationController title="navigation VC" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="Jvl-hD-dYT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Sbi-Wv-zzv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H5r-DH-xCf">
@@ -181,6 +205,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g27-7z-lqz">
+                        <rect key="frame" x="0.0" y="574" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZPU-HR-LCT"/>
                     </connections>

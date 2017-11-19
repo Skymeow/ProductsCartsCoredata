@@ -34,13 +34,17 @@ public final class CoreDataStack {
         return persistentContainer.newBackgroundContext()
     }()
     
-    func fetchEntity
-    
+//    func fetchEntity(context: NSManagedObjectContext) {
+//        let fetchRequest = NSFetchRequest<context>(entityName: "\(context.name)")
+//        do {
+//            let fetchResult = try stack.privateContext.fetch(fetchCartRequest)
+//        } catch let error {
+//            print(error)
+//        }
+//    }
+//
     func saveTo(context: NSManagedObjectContext) {
         if context.hasChanges {
-            if context == Inventory {
-                
-            }
             do {
                 try context.save()
             } catch {

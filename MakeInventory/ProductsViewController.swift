@@ -1,12 +1,21 @@
 import UIKit
 import CoreData
 
-class InventoriesViewController: UIViewController {
+class ProductsViewController: UIViewController, ProductsDelegate {
+    
     let stack = CoreDataStack.instance
     var cart: Cart?
+    var inventories = [Inventory]()
+    
+    func passIndex(indexPath: IndexPath) {
+        let selectedInventory = inventories[indexPath.row]
+        defer {
+            stack.saveTo(context: stack.privateContext)
+        }
+        self.cart?.addToInventories(selectedInventory)
+    }
     
     @IBOutlet weak var tableView: UITableView!
-    var inventories = [Inventory]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +28,8 @@ class InventoriesViewController: UIViewController {
             let fetchResult = try stack.privateContext.fetch(fetchCartRequest)
             guard let cart = fetchResult.first else {
                 let newCart = Cart(context: stack.privateContext)
-//                newCart.name = "NewAwesomeCart"
+                newCart.name = "NewAwesomeCart"
+//                self.cart = newCart
                 stack.saveTo(context: stack.privateContext)
                 return
             }
@@ -38,16 +48,18 @@ class InventoriesViewController: UIViewController {
         let fetchInv = NSFetchRequest<Inventory>(entityName: "Inventory")
         do {
             let resultInv = try stack.viewContext.fetch(fetchInv)
+//            let inv = resultInv.first
             self.inventories = resultInv
             self.tableView.reloadData()
         }catch let error {
             print(error)
         }
     }
+    
 }
 
 
-extension InventoriesViewController: UITableViewDataSource {
+extension ProductsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -55,26 +67,16 @@ extension InventoriesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return inventories.count
     }
-}
-
-extension InventoriesViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath) as! ProductsTableViewCell
+        cell.delegate = self as ProductsDelegate
+        cell.indexPath = indexPath
         let item = inventories[indexPath.row]
-        
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "x\(item.quantity)"
+        cell.productName.text = item.name
+        cell.productQuantity.text = "x\(item.quantity)"
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedInventory = inventories[indexPath.row]
-        
-        defer {
-            stack.saveTo(context: stack.privateContext)
-        }
-        self.cart!.addToToManyInventories(selectedInventory)
-    }
 }
+

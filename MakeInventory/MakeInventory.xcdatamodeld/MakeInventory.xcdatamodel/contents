@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Cart" representedClassName="Cart" syncable="YES" codeGenerationType="class">
-        <relationship name="toManyInventories" toMany="YES" deletionRule="Nullify" destinationEntity="Inventory" inverseName="toOneCart" inverseEntity="Inventory" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="inventories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Inventory" inverseName="cart" inverseEntity="Inventory" syncable="YES"/>
+        <fetchedProperty name="fetchedProperty" optional="YES" syncable="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Cart"/>
+        </fetchedProperty>
     </entity>
     <entity name="Inventory" representedClassName="Inventory" syncable="YES" codeGenerationType="class">
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="quantity" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="toOneCart" maxCount="1" deletionRule="Nullify" destinationEntity="Cart" inverseName="toManyInventories" inverseEntity="Cart" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="cart" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart" inverseName="inventories" inverseEntity="Cart" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Cart" positionX="-63" positionY="0" width="128" height="60"/>
+        <element name="Cart" positionX="-63" positionY="0" width="128" height="104"/>
         <element name="Inventory" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>

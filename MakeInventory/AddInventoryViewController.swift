@@ -1,13 +1,5 @@
-//
-//  AddInventoryViewController.swift
-//  MakeInventory
-//
-//  Created by Eliel A. Gordon on 11/12/17.
-//  Copyright © 2017 Eliel Gordon. All rights reserved.
-//
-
 import UIKit
-
+import CoreData
 class AddInventoryViewController: UIViewController {
     let coreDataStack = CoreDataStack.instance
     
@@ -21,17 +13,14 @@ class AddInventoryViewController: UIViewController {
     @IBAction func savePressed(_ sender: Any) {
         guard let name = inventoryNameField.text,
             let quantity = Int64(inventoryQuantityField.text!) else {return}
-        
-        let inv = Inventory(
-            context: coreDataStack.privateContext
-        )
-        
-        inv.name = name
-        inv.quantity = quantity
-        
+        let newInv = Inventory(context: coreDataStack.privateContext)
+        print(newInv.managedObjectContext?.concurrencyType)
+        newInv.name = name
+        newInv.quantity = quantity
         coreDataStack.saveTo(context: coreDataStack.privateContext)
         
         self.navigationController?.popViewController(animated: true)
     }
+
     
 }
