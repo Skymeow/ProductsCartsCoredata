@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G26-8O-8Ed">
-                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="68" width="375" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCell" rowHeight="116" id="OSh-Ip-j65" customClass="ProductsTableViewCell" customModule="MakeInventory" customModuleProvider="target">
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="414" y="61"/>
+            <point key="canvasLocation" x="766" y="34"/>
         </scene>
         <!--Cart View Controller-->
         <scene sceneID="UvF-Nf-ZDp">
@@ -130,7 +130,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="OH8-O7-eKv">
-                                <rect key="frame" x="15" y="134" width="345" height="95"/>
+                                <rect key="frame" x="15" y="138" width="345" height="95"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Nao-1z-e6J">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
@@ -198,10 +198,10 @@
         <scene sceneID="4oJ-iZ-nK0">
             <objects>
                 <navigationController title="navigation VC" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="Jvl-hD-dYT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Sbi-Wv-zzv"/>
+                    <tabBarItem key="tabBarItem" title="Item" badgeValue="Products" id="Sbi-Wv-zzv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H5r-DH-xCf">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -227,7 +227,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="mQa-dK-9RU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="lhz-Qh-EZb"/>
+                    <tabBarItem key="tabBarItem" title="Item" badgeValue="Favorite" id="lhz-Qh-EZb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gC8-zO-wKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

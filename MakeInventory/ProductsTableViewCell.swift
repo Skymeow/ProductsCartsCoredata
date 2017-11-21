@@ -9,19 +9,20 @@
 import UIKit
 
 protocol ProductsDelegate: class {
-    func passIndex(indexPath: IndexPath)
+    func passProduct(_ product: Inventory)
 }
 
 class ProductsTableViewCell: UITableViewCell {
     weak var delegate: ProductsDelegate?
     var indexPath: IndexPath?
-    
+    var product: Inventory!
     @IBOutlet weak var productName: UILabel!
     
     @IBOutlet weak var productQuantity: UILabel!
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
-        delegate?.passIndex(indexPath: self.indexPath!)
+        delegate?.passProduct(self.product)
+        
     }
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -17,6 +17,7 @@
 		055B95231FB964F800F3A369 /* AddInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055B95221FB964F800F3A369 /* AddInventoryViewController.swift */; };
 		055B95251FB9673C00F3A369 /* Inventory+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055B95241FB9673C00F3A369 /* Inventory+Extensions.swift */; };
 		F9222B311FC224FE0078DB5C /* ProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9222B301FC224FE0078DB5C /* ProductsTableViewCell.swift */; };
+		F971CDF11FC3BD6000AEEE34 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971CDF01FC3BD6000AEEE34 /* CartViewController.swift */; };
 		F9DE0FB91FBD069100B89A0D /* CoreDataInitiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DE0FB81FBD069000B89A0D /* CoreDataInitiable.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		055B95221FB964F800F3A369 /* AddInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInventoryViewController.swift; sourceTree = "<group>"; };
 		055B95241FB9673C00F3A369 /* Inventory+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inventory+Extensions.swift"; sourceTree = "<group>"; };
 		F9222B301FC224FE0078DB5C /* ProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCell.swift; sourceTree = "<group>"; };
+		F971CDF01FC3BD6000AEEE34 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		F9DE0FB81FBD069000B89A0D /* CoreDataInitiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataInitiable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 				F9222B301FC224FE0078DB5C /* ProductsTableViewCell.swift */,
 				055B95201FB9491100F3A369 /* CoreDataStack.swift */,
 				055B950F1FB932B800F3A369 /* Main.storyboard */,
+				F971CDF01FC3BD6000AEEE34 /* CartViewController.swift */,
 				055B95151FB932B800F3A369 /* Assets.xcassets */,
 				055B95171FB932B800F3A369 /* LaunchScreen.storyboard */,
 				055B951A1FB932B800F3A369 /* Info.plist */,
@@ -161,6 +164,7 @@
 				055B95251FB9673C00F3A369 /* Inventory+Extensions.swift in Sources */,
 				F9222B311FC224FE0078DB5C /* ProductsTableViewCell.swift in Sources */,
 				055B95231FB964F800F3A369 /* AddInventoryViewController.swift in Sources */,
+				F971CDF11FC3BD6000AEEE34 /* CartViewController.swift in Sources */,
 				F9DE0FB91FBD069100B89A0D /* CoreDataInitiable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

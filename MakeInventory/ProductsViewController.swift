@@ -3,17 +3,22 @@ import CoreData
 
 class ProductsViewController: UIViewController, ProductsDelegate {
     
+    func passProduct(_ product: Inventory) {
+        if let cart = self.cart {
+            let selectedInventory = product
+            selectedInventory.cart = cart
+            cart.inventories?.adding(selectedInventory)
+            stack.saveTo(context: stack.privateContext)
+            print("cart exists: \(cart.inventories)")
+        } else {
+            print("cart doesn't exist")
+        }
+        
+    }
+  
     let stack = CoreDataStack.instance
     var cart: Cart?
     var inventories = [Inventory]()
-    
-    func passIndex(indexPath: IndexPath) {
-        let selectedInventory = inventories[indexPath.row]
-        defer {
-            stack.saveTo(context: stack.privateContext)
-        }
-        self.cart?.addToInventories(selectedInventory)
-    }
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,7 +34,7 @@ class ProductsViewController: UIViewController, ProductsDelegate {
             guard let cart = fetchResult.first else {
                 let newCart = Cart(context: stack.privateContext)
                 newCart.name = "NewAwesomeCart"
-//                self.cart = newCart
+                self.cart = newCart
                 stack.saveTo(context: stack.privateContext)
                 return
             }
@@ -47,7 +52,7 @@ class ProductsViewController: UIViewController, ProductsDelegate {
      **/
         let fetchInv = NSFetchRequest<Inventory>(entityName: "Inventory")
         do {
-            let resultInv = try stack.viewContext.fetch(fetchInv)
+            let resultInv = try stack.privateContext.fetch(fetchInv)
 //            let inv = resultInv.first
             self.inventories = resultInv
             self.tableView.reloadData()
@@ -70,9 +75,10 @@ extension ProductsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell", for: indexPath) as! ProductsTableViewCell
-        cell.delegate = self as ProductsDelegate
-        cell.indexPath = indexPath
+        cell.delegate = self
+//        cell.indexPath = indexPath
         let item = inventories[indexPath.row]
+        cell.product = item
         cell.productName.text = item.name
         cell.productQuantity.text = "x\(item.quantity)"
         
